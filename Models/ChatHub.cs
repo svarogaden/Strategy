@@ -916,6 +916,7 @@ namespace SpaceStrategy.Models
                         b.HitInterval = intervalExplode;
                         Console.WriteLine("Ракета  прилетела");
                         Console.WriteLine("Ракета  Залетела");
+                        Console.WriteLine("Ракета Взорваплась ");
                         Console.WriteLine("=================");
 
                     }
