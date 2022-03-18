@@ -1,0 +1,57 @@
+﻿@model SpaceStrategy.ViewModels.PhotoEditModels
+@{
+    ViewData["Title"] = "Edit Avatar";
+}
+
+<p>
+    <a asp-action="Index">Мой профиль</a>
+</p>
+
+<table class="table">
+    <tr><th>Аватар</th><th>Требования</th><th>Файл</th><th></th></tr>
+    <tr>
+        <td>
+            @if (Model.Avatar != null)
+            {
+                <img style='width:80px; height:60px;' src="data:image/jpeg;base64,@(Convert.ToBase64String(Model.Avatar))" />
+            }
+            else
+            {
+                <img style='width:80px; height:80px;' src="~/images/placeholder.png" />
+            }
+        </td>
+        <td>
+            <p>Только jpg формат не более 50 Mb.Загружайте только прямоугольные фото </p>
+        </td>
+        <td>
+
+            <form asp-action="EditAvar" asp-controller="Profile" method="post" enctype="multipart/form-data">
+                <div asp-validation-summary="All" class="text-danger"></div>
+
+                @*<div asp-validation-summary="ModelOnly"></div>
+                    <div asp-validation-summary="All" class="text-danger"></div>*@
+
+                <div class="form-group">
+                    <input type="hidden" asp-for="Id" />
+                </div>
+
+                <div class="form-group">
+                    <p lang="ru">
+                        @*<label asp-for="Avatar" class="control-label">Аватар</label>*@
+                        <input type="file" asp-for="Avatar" class="form-control-file" />
+                    </p>
+                </div>
+                <div class="form-group">
+                    <p>
+                        <input type="submit" value="Добавить" class="btn btn-sm btn-primary" />
+                    </p>
+                </div>
+            </form>
+
+
+
+        </td>
+
+    </tr>
+
+</table>

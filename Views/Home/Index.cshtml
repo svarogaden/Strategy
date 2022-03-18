@@ -1,0 +1,192 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+
+    <meta charset="windows-1251">
+    <link rel="icon" href="data:;base64,=">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, height =device-height, initial-scale=0.86, maximum-scale=1.0, minimum-scale=0.86">
+    <meta name="mobile-web-app-capable" content="yes">
+
+
+    <title>War</title>
+
+
+
+    <link rel="stylesheet" type="text/css" href="~/css/hamburger.css">
+    <link rel="stylesheet" type="text/css" href="~/css/canvasdisplay.css">
+    <link rel="stylesheet" type="text/css" href="~/css/loaderdisplay.css">
+    <link rel="stylesheet" type="text/css" href="~/css/GameIconSheet.css">
+
+    @*<link rel="stylesheet" type="text/css" href="~/css/PanelStyle.css">*@
+
+
+    <link rel="stylesheet" type="text/css" href="~/css/StyleSlyder.css">
+    <link rel="stylesheet" type="text/css" href="~/css/NucliarStyle.css">
+
+
+
+
+    <script src="~/js/microsoft/signalr/dist/browser/signalr.js"></script>
+    <script src="~/js/Control/Panel.js"></script>
+
+
+
+    <script src="~/js/three.js"></script>
+
+
+
+
+    <script src="~/js/Shaders/Explode/Explode.js"></script>
+    
+    <script src="~/js/Shaders/Fire/FireShader.js"></script>
+    <script src="~/js/Shaders/Fire/Fire.js"></script>
+
+
+
+    <script src="~/js/Ocean/Water.js"></script>
+    <script src="~/js/Sky/Sky.js"></script>
+
+
+
+    <script src="~/js/Loading/OBJLoader.js"></script>
+    <script src="~/js/Loading/AsyncLoaderModel.js"></script>
+
+
+
+
+
+    <script src="~/js/WarTank.js"></script>
+
+    <script src="~/js/Statustic.js"></script>
+
+    <script src="~/js/Planet.js"></script>
+    <script src="~/js/Engine.js"></script>
+    <script src="~/js/NotifyMess.js"></script>
+
+    <script src="~/js/Mouse.js"></script>
+    <script src="~/js/Keyboard.js"></script>
+    <script src="~/js/OrbitControls.js"></script>
+
+
+    <script src="~/js/OrbitControls.js"></script>
+
+    <script src="~/js/Planet/Scenes.js"></script>
+
+
+    <script src="~/js/Slider.js"></script>
+</head>
+
+
+
+<body>
+    @if (User.Identity.IsAuthenticated)
+    {
+        @*<p>@User.Identity.Name</p>*@
+
+        <div class="hamburger-menu">
+            <input id="menu__toggle" type="checkbox" />
+            <label class="menu__btn" for="menu__toggle">
+                <span></span>
+            </label>
+            <ul class="menu__box">
+
+
+                @if (User.IsInRole("admin"))
+                {
+
+                    <li><a class="menu__item" href="~/Profile/Members/">Пользователи</a></li>
+                    <li><a class="menu__item" href="~/Roles/Index/">Роли</a></li>
+                    <li><a class="menu__item" href="~/Manager/StopServer/">Остановить сервер</a></li>
+
+                }
+
+
+
+                <li><a class="menu__item" href="~/">Играть</a></li>
+                <li><a class="menu__item" href="~/ChatGroup/Index/">Сообщества</a></li>
+                <li><a class="menu__item" href="~/Profile">Мой профиль</a></li>
+                <li><a class="menu__item" id="FullScreen" href="#">Полный экран</a></li>
+
+                <li><a class="menu__item" href="#">Блог</a></li>
+                <li><a class="menu__item" href="#">Контакты</a></li>
+
+                <li>
+
+
+                    <form method="post" asp-controller="Account" asp-action="Logout">
+                        <input type="submit" class="btn btn-primary" value=" Выход " />
+                    </form>
+
+
+                </li>
+
+            </ul>
+        </div>
+    }
+
+
+
+    @*<div id="currentTarget">Расстояние до цели:173 м</div>*@
+
+
+
+
+
+
+    <div id="resourceTable">
+        <div class="column"><img src="~/images/display/Metall.png" width="25" height="25" /></div>
+        <div class="column"><b id="MetallDisplay">0</b></div>
+        <div class="column"><img src="~/images/display/Gas.png" width="25" height="25" /></div>
+        <div class="column"><b id="GasDisplay">0</b></div>
+        <div class="column"><img src="~/images/display/Uran.png" width="25" height="25" /></div>
+        <div class="column"><b id="UranDisplay">0</b></div>
+        <div class="column"><img src="~/images/display/Lightning.png" width="25" height="25" /></div>
+        <div class="column">4000</div>
+    </div>
+
+
+
+
+
+    <div id="Controls"></div>
+    <div id="InfoPanel"></div>
+
+
+
+
+
+
+    <div id="currentPlanet">Планета</div>
+
+    <div id="loading"></div>
+    <canvas id="canvas"></canvas>
+
+    <script type="text/javascript">
+        document.oncontextmenu = () => { return false };
+    </script>
+
+
+
+
+
+
+
+
+
+   
+
+
+     
+
+
+
+
+</body>
+
+
+
+</html>

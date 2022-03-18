@@ -1,0 +1,35 @@
+﻿/*.columns {
+    display: flex;
+}
+
+.column {
+    flex: 1;
+}
+
+.main-column {
+    flex: 2;
+}
+*/
+
+
+.article {
+    display: flex;
+    flex-direction: column;
+    flex-basis: auto; /* Устанавливает начальный размер элемента в зависимости от его содержимого */
+}
+
+.article-body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}
+
+.article-content {
+    flex: 1; /* Содержимое заполняет все оставшееся место, тем самым прижимая информационную панель к нижней части */
+}
+
+/*article-image{
+
+margin:600px;
+padding:500px;
+}*/

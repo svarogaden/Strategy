@@ -1,0 +1,31 @@
+﻿@model SpaceStrategy.ViewModels.UserViewModel
+
+<link rel="stylesheet" href="~/css/ProfileStyle.css" />
+
+<div class="card">
+    <a asp-controller="Profile" asp-action="EditAvar" asp-route-id="2345">
+        @*<img src="~/images/avatarProfile.jfif" alt="John" style="width:100%">*@
+
+        @if (Model.Avatar != null)
+        {
+            <img style='width:100%; ' src="data:image/jpeg;base64,@(Convert.ToBase64String(Model.Avatar))" />
+        }
+        else
+        {
+             <img style='width: 100%;' src="~/images/placeholder.png" />
+        }
+    </a>
+
+   
+    @*<p class="title">Профиль</p>*@
+
+    <h1>@Model.Name</h1>
+
+    <p>Год рождения : @Model.Year</p>
+    <p>Рейтинг : @Model.Rating</p>
+
+    <p>  <a class="btn btn-sm btn-primary" asp-action="Edit" asp-route-userid="2222">Редактировать</a></p>
+
+
+
+</div>

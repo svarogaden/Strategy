@@ -1,0 +1,41 @@
+﻿@model SpaceStrategy.ViewModels.EditUserViewModel
+@{
+    ViewBag.Title = "Редактирование пользователя";
+}
+
+
+<p>
+    <a asp-action="Index">Мой профиль</a>
+</p>
+
+<p>
+    <a asp-action="ChangePassword" asp-controller="Profile" >Сменить пароль</a>
+</p>
+
+
+<form asp-action="Edit" asp-controller="Profile">
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+
+    @*<div class="form-group">
+        <input type="hidden" asp-for="Id" />
+    </div>*@
+
+    <div class="form-group">
+        <label asp-for="NameUser" class="control-label">Имя</label>
+        <input type="text" asp-for="NameUser" class="form-control" />
+    </div>
+
+
+    <div class="form-group">
+        <label asp-for="Email" class="control-label">Email</label>
+        <input type="text" asp-for="Email" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Year" class="control-label">Год рождения</label>
+        <input type="number" asp-for="Year" class="form-control" />
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Сохранить" class="btn btn-outline-secondary" />
+    </div>
+</form>
